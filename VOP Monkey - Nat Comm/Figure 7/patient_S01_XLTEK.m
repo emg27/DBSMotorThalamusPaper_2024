@@ -1,9 +1,8 @@
-contactAll = {'APB', 'FLEX','EXT'}; % Best are APB, FLEX, EXT
+contactAll = {'APB', 'FLEX','EXT'}; 
 session = '20220317';
-%PATHFILE = 'D:\Dropbox\PostDoc\ElviraMarco\IntraOperativeForms\XLTEK';
 PATHFILE = 'P:\projects\human\VOP STIM\DATA\Intra_Op_DBS\XLTEK'
 
-allCond = {'9mA'};%{'10mA','9mA','8mA'};
+allCond = {'10mA','9mA','8mA'};
 time = linspace(0,100,600);
 dt = mean(diff(time));
 xLimPlt = [10 60];
@@ -82,7 +81,7 @@ for n = 1:length(contactAll)
         F(k,n).Name = sprintf('%s_dcs_traces_%s_m1_%s',session,contact{1},cond);
 
         % Subselect the indices to include in the area under the curve
-        subset = 125:400;%150:300;
+        subset = 125:400;
 
         aocM1(1:lM1) = trapz(time(subset),abs(dataM1(subset,:)));
         aoc50(1:l50) = trapz(time(subset),abs(data50(subset,:)));
